@@ -20,9 +20,12 @@ class Dropdown {
     
     // Toggle the ".dropdown-hidden" class off and on
     this.content.classList.toggle('dropdown-hidden');
+    if(this.content.classList.contains('dropdown-hidden')) TweenMax.to(this.content, 1, {height: '0px', opacity: 0});
+    else TweenMax.to(this.content, 1, {height: '170px', opacity: 1});
   }
 }
 
 
 // Nothing to do here, just study what the code is doing and move on to the Dropdown class
-let dropdowns = document.querySelectorAll('.dropdown').forEach( dropdown => new Dropdown(dropdown));
+let dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach( dropdown => new Dropdown(dropdown));
